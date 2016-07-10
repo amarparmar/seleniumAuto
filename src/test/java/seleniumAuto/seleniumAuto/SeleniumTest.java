@@ -40,6 +40,6 @@ wd.findElement(By.xpath("//a[contains(text(),'HICKS, ANNA')]")).click();
 isPresent = wd.findElements(By.xpath("//input[@title='New Credentialing']")).size() > 0  ;
 System.out.println(isPresent); 
 Assert.assertEquals(false,isPresent) ;
-    /*check for github*/ 
+    /*******/
     }
 }
