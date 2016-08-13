@@ -45,8 +45,8 @@ public class sf_us245380_test
 		wd.findElement(By.xpath("//img[@title='Expand - Manage Users - Level 1']")).click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='ManageUsers_font' and text()='Users']"))) ;
 		wd.findElement(By.xpath("//a[@id='ManageUsers_font' and text()='Users']")).click() ;
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@title='Login - Record 19 - User2, Test2' and text()='Login']"))) ;
-		wd.findElement(By.xpath("//a[@title='Login - Record 19 - User2, Test2' and text()='Login']")).click() ;
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@title='Login - Record 21 - User2, Test2' and text()='Login']"))) ;
+		wd.findElement(By.xpath("//a[@title='Login - Record 21 - User2, Test2' and text()='Login']")).click() ;
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@class='allTabsArrow']"))) ;
 		wd.findElement(By.xpath("//img[@class='allTabsArrow']")).click() ;
 		/*Data SetUp*/
