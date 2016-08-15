@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -63,28 +64,62 @@ public class sf_us245380_test
 		handles = wd.getWindowHandles() ;
 		iterator = handles.iterator();
 		System.out.println("Main window" + parentWindowHandler);
-        handles.remove(parentWindowHandler) ;
+        /*handles.remove(parentWindowHandler) ;*/
         subWindowHandler = iterator.next() ;
+        subWindowHandler = iterator.next();
 		System.out.println("subwindow" + subWindowHandler);
 		wd.switchTo().window(subWindowHandler) ;
-		
+		wd.switchTo().frame("resultsFrame") ;
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='ANNA HICKS']"))) ;
 wd.findElement(By.xpath("//a[text()='ANNA HICKS']")).click() ;
 wd.switchTo().window(parentWindowHandler) ;
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[@id='bottomButtonRow']/input[@type='submit' and @value=' Save ']"))) ;
+
+wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[@id='bottomButtonRow']/input[@type='submit' and @value=' Save ']"))) ;
 		wd.findElement(By.xpath("//td[@id='bottomButtonRow']/input[@type='submit' and @value=' Save ']")).click() ;
-		/*Data SetUp*/
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@class='allTabsArrow']"))) ;
+//		Data SetUp
+/*		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@class='allTabsArrow']"))) ;
 		wd.findElement(By.xpath("//img[@class='allTabsArrow']")).click() ;
 		
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr//a[contains(.,'Contract Terminations')]"))) ;
-		wd.findElement(By.xpath("//tr//a[contains(.,'Contract Terminations')]")).click();
-		/*Data SetUp*/
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@value=' New ']"))) ;
+		wd.findElement(By.xpath("//tr//a[contains(.,'Contract Terminations')]")).click();*/
+//		Data SetUp
+/*		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@value=' New ']"))) ;
 		wd.findElement(By.xpath("//input[@value=' New ']")).click();
+*/
 		
-		
+wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@name='request_contract_termination'])[1]"))) ;
+wd.findElement(By.xpath("(//input[@name='request_contract_termination'])[1]")).click() ;
+
+wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@title='Termination Requested by Lookup (New Window)']"))) ;
+wd.findElement(By.xpath("//a[@title='Termination Requested by Lookup (New Window)']")).click() ;
+
+
+handles = wd.getWindowHandles() ;
+iterator = handles.iterator();
+System.out.println("Main window" + parentWindowHandler);
+/*handles.remove(parentWindowHandler) ;*/
+subWindowHandler = iterator.next() ;
+subWindowHandler = iterator.next();
+System.out.println("subwindow" + subWindowHandler);
+wd.switchTo().window(subWindowHandler) ;
+wd.switchTo().frame("resultsFrame") ;
+
+
+wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='parmar amarjeet']"))) ;
+wd.findElement(By.xpath("//a[text()='parmar amarjeet']")).click() ;
+wd.switchTo().window(parentWindowHandler) ;
+Select dropdown = new Select(wd.findElement(By.xpath("//select[@id='00No000000D4jSj']"))) ;
+dropdown.selectByVisibleText("Closed – Terminated") ;
+wd.findElement(By.xpath("//textarea[@id='00No000000D4jSf']")).sendKeys("For Testing purposes only");
+Select dropdown2 = new Select(wd.findElement(By.xpath("//select[@id='00No000000D4jSd']"))) ;
+dropdown2.selectByVisibleText("Retired") ;
+
+
+
+
 		/*Data SetUp End */
+
+		
 		Assert.fail("I am failure") ;
 	}
 	
